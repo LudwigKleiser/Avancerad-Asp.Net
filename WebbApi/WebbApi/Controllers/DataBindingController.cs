@@ -27,7 +27,7 @@ namespace WebbApi.Controllers
         }
 
         [HttpGet, Route("listOfNumbers")]
-        public IActionResult listOfNumbers(int numbrFrom, int numbrTo)
+        public IActionResult ListOfNumbers(int numbrFrom, int numbrTo)
         {
            
 
@@ -41,7 +41,8 @@ namespace WebbApi.Controllers
         [HttpGet,Route("colorPicker")]
         public IActionResult ColorPicker(string color)
         {
-            
+            string html = $"<body style='background-color:{color}'></body>";
+            return Content(html, "text/html");
         }
     }
 }
