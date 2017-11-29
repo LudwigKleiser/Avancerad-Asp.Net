@@ -27,6 +27,8 @@ namespace WebbApi.Controllers
 
             if(!ModelState.IsValid)
             {
+                //if(ModelState["Name"].ValidationState != ModelState.ValidationState)
+                //return BadRequest(ModelState["Name"].Errors[0].ErrorMessage);
                 //var errorList = ModelState.Values.SelectMany(m => m.Errors)
                 //                 .Select(e => e.ErrorMessage)
                 //                 .ToArray();

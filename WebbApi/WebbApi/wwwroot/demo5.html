@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form method="get" action="api/demo5/FindPerson">
+        Skriv in ett id<input type="text" name="id" id="input" /> <br />
+       Brief <input type="checkbox" value="true" name="brief" id="check" />
+        <input type="submit" value="Ingen Ajax" />
+    </form>
+
+    <form method="get" action="api/demo5/GetAllPersons">
+        <input type="submit" value="Hämta alla personer" />
+
+    </form>
+
+    
+    <button id="ajaxSingle"> Ajax</button>
+    <button id="ajaxAll">Alla Ajax</button>
+
+    <br /> <br />
+
+    <h1 id="successMessage"></h1>
+    <h1 id="errorMessage"></h1>
+   
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="/js/JavaScript.js"></script>
+</body>
+</html>
