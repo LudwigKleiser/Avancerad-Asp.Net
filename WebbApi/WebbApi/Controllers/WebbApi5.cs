@@ -19,11 +19,11 @@ namespace WebbApi.Controllers
            var filePath = "C:/Users/ludde/OneDrive/Dokument/Avancerad ASP.net/Avancerad-Asp.Net/WebbApi/WebbApi/Data/Persons.txt";
            var data = System.IO.File.ReadAllLines(filePath);
             var textPersons = new List<TextPerson>();
-
+            
             foreach (var person in data)
             {
-               
                 string[] splitString = person.Split(",");
+
                 textPersons.Add(new TextPerson
                 {
                     Id = splitString[0],
