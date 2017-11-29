@@ -66,7 +66,7 @@ namespace WebbApi.Controllers
             int totalAmount = 25;
             double result = totalAmount / number;
 
-            return Ok($"Alla får {result} choklad bitar var");
+            return Ok($"Alla får {result:.##} choklad bitar var");
         }
         [HttpGet, Route("Getorder")]
         public IActionResult GetOrder(string input)

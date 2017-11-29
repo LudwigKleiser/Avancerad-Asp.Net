@@ -36,6 +36,7 @@ namespace WebbApi
 
             app.UseMvc();
             app.UseStaticFiles();
+            app.UseDirectoryBrowser();
             
         }
     }
