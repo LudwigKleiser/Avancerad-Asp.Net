@@ -52,9 +52,14 @@ namespace WebbApi.Controllers
                 {
                     var personToGet = persons.SingleOrDefault(p => p.Id == id);
                     Convert.ToInt32(personToGet.Id);
-                    string dataToReturn = personToGet.Firstname + " " + personToGet.Lastname;
-                    string json = JsonConvert.SerializeObject(dataToReturn);
-                    return Ok(json);
+                    var returnPerson = new SimplePerson
+                    {
+                        Firstname = personToGet.Firstname,
+                        Lastname = personToGet.Lastname
+                    };
+                    
+                    string json = JsonConvert.SerializeObject(returnPerson);
+                    return Ok(returnPerson);
                 }
                 catch (Exception)
                 {
@@ -66,11 +71,11 @@ namespace WebbApi.Controllers
             {
                 var dataToReturn = persons.SingleOrDefault(p => p.Id == id);
                 Convert.ToInt32(dataToReturn.Id);
-                string json = JsonConvert.SerializeObject(dataToReturn);
+                //string json = JsonConvert.SerializeObject(dataToReturn);
 
                 //write string to file
                 //System.IO.File.WriteAllText(@"D:\path.txt", json);
-                return Ok(json);
+                return Ok(dataToReturn);
             }
             catch (Exception)
             {
@@ -86,11 +91,8 @@ namespace WebbApi.Controllers
         public IActionResult ReturnAllPersons()
         {
             var persons = GetDataFromTextFile();
-            string json = JsonConvert.SerializeObject(persons);
-
-            //write string to file
-            //System.IO.File.WriteAllText(@"D:\path.txt", json);
-            return Ok(json);
+            //string json = JsonConvert.SerializeObject(persons);
+            return Ok(persons);
 
             
         }
