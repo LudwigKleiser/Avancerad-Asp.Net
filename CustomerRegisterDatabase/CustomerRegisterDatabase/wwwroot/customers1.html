@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Kundregister med databas</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
+    <link href="Stylesheets/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -21,12 +21,14 @@
         <input name="Gender" />
         <button>Ok</button>
     </div>
+    
+    <button class="btn btn-success my-3"  id="ajaxAll">Alla Ajax</button>
 
-    <button class="btn btn-success my-3" onclick="remove()" id="ajaxAll">Alla Ajax</button>
     
     <div id="successMessage"></div>
     <div id="errorMessage"></div>
 
+    <div class="modal fade" id="editMessage" tabindex="-1" role="dialog" aria-labelledby="editMessageLabel" aria-hidden="true"></div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

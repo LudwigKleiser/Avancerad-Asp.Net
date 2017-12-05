@@ -18,8 +18,8 @@ namespace CustomerRegisterDatabase
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = @"Data Source=aspnetcustomers.database.windows.net;Initial Catalog=Customers;Integrated Security=False;User ID=ludde;Password=qwerty1!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            services.AddDbContext<DatabaseContext>(o => o.UseSqlServer(connString));
+            //var connString = @"Data Source=aspnetcustomers.database.windows.net;Initial Catalog=Customers;Integrated Security=False;User ID=ludde;Password=qwerty1!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            services.AddDbContext<DatabaseContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc();
         }

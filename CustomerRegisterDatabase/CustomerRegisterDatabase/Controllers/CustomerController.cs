@@ -38,6 +38,30 @@ namespace CustomerRegisterDatabase.Controllers
             return Ok("Removed");
 
         }
+
+        [HttpGet,Route("editcustomer")]
+        public IActionResult EditCustomer(int id)
+        {
+            var userToEdit = databaseContext.CustomerById(id);
+
+
+            return Ok(userToEdit);
+        }
+
+        [HttpPost,Route("editcustomer")]
+        public IActionResult EditCustomer(Customer customer)
+        {
+            var userToEdit = databaseContext.CustomerById(customer.Id);
+            userToEdit.FirstName = customer.FirstName;
+            userToEdit.LastName = customer.LastName;
+            userToEdit.Email = customer.Email;
+            userToEdit.Age = customer.Age;
+            userToEdit.Gender = customer.Gender;
+            databaseContext.Customer.Update(userToEdit);
+            databaseContext.SaveChanges();
+
+            return Ok("edited");
+        }
         
 
         [HttpGet,Route("allcustomers")]
