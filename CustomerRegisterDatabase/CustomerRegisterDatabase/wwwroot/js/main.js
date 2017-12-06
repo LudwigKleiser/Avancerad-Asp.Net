@@ -2,32 +2,28 @@
     $("#successMessage").text("");
     $("#errorMessage").text("");
 }
+$("#seed").click(function () {
 
-function remove(id) {
     $.ajax({
-        url: '/api/Customers/removecustomer',
-        method: 'POST',
+        url: 'api/customers/seed',
+        method: 'GET',
         data: {
-            id: this.id
+
         }
-
     })
-        .done(function (result) {
 
-            alert(`Success! Result = ${result}`);
+        .done(function (result) {
             console.log("Success!", result);
             $("#ajaxAll").click();
-
         })
 
         .fail(function (xhr, status, error) {
 
-            alert(`Fail!`);
+
             console.log("Error", xhr, status, error);
 
         });
-}
-
+});
 $("#addForm button").click(function () {
 
     $.ajax({
@@ -44,7 +40,6 @@ $("#addForm button").click(function () {
     })
         .done(function (result) {
 
-            alert(`Success! Result = ${result}`);
             console.log("Success!", result);
             $("#ajaxAll").click();
 
@@ -52,7 +47,7 @@ $("#addForm button").click(function () {
 
         .fail(function (xhr, status, error) {
 
-            alert(`Fail!`);
+
             console.log("Error", xhr, status, error);
 
         });
@@ -127,7 +122,7 @@ $("#ajaxAll").click(function () {
                         modalString += '<label>Efternamn</label>';
                         modalString += '<input value="' + result.lastName + '"' + ' name="LastName" /> </br>';
                         modalString += '<label>Ålder</label>';
-                        modalString += '<input value="' + result.age + '"' + ' name="Age" /> </br>'
+                        modalString += '<input value="' + result.age + '"' + ' name="Age" /> </br>';
                         modalString += '<label>Email</label>';
                         modalString += '<input value="' + result.email + '"' + ' name="Email" /></br> ';
                         modalString += '<label>Kön</label>';
@@ -160,7 +155,7 @@ $("#ajaxAll").click(function () {
                             })
                                 .done(function (result) {
 
-                                    alert(`Success! Result = ${result}`);
+
                                     console.log("Success!", result);
                                     $("#ajaxAll").click();
 
@@ -168,7 +163,7 @@ $("#ajaxAll").click(function () {
 
                                 .fail(function (xhr, status, error) {
 
-                                    alert(`Fail!`);
+
                                     console.log("Error", xhr, status, error);
 
                                 });

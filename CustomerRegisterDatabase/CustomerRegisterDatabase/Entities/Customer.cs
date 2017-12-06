@@ -11,5 +11,10 @@ namespace CustomerRegisterDatabase.Entities
         public string Email { get; set; }
         public string Gender { get; set; }
 
+        public DateTime? DateCreated { get; set; }
+
+        public DateTime? DateEdited { get; set; }
+
+
     }
 }
