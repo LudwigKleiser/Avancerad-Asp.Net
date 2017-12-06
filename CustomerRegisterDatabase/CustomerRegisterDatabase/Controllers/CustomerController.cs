@@ -1,5 +1,6 @@
 ﻿using CustomerRegisterDatabase.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 
 namespace CustomerRegisterDatabase.Controllers
@@ -8,10 +9,12 @@ namespace CustomerRegisterDatabase.Controllers
     public class CustomerController : Controller
     {
         private DatabaseContext databaseContext;
+        private readonly ILogger<CustomerController> _logger;
 
-        public CustomerController(DatabaseContext databaseContext)
+        public CustomerController(DatabaseContext databaseContext, ILogger<CustomerController> logger)
         {
             this.databaseContext = databaseContext;
+            _logger = logger;
         }
 
         [HttpPost,Route("addcustomer")]
@@ -23,7 +26,7 @@ namespace CustomerRegisterDatabase.Controllers
             }
             databaseContext.Customer.Add(customer);
             databaseContext.SaveChanges();
-
+            _logger.LogInformation("Customer added");
             return Ok(customer.Id);
         }
 
@@ -68,6 +71,7 @@ namespace CustomerRegisterDatabase.Controllers
 
         public IActionResult AllCustomers()
         {
+            _logger.LogInformation("Getting all customers");
             return Ok(databaseContext.Customer);
         }
     }

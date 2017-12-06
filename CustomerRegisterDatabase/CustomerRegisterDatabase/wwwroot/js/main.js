@@ -122,16 +122,16 @@ $("#ajaxAll").click(function () {
                         let modalString = '<div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Edit</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close">';
                         modalString += '<span aria-hidden="true">&times;</span ></button></div><div class="modal-body">';
                         modalString += '<div id="editForm">';
-                        modalString += '<label> Förnamn</label ><br/>';
-                        modalString += '<input value="' + result.firstName + '"' + ' name= "FirstName" /> ';
-                        modalString += '<label>Efternamn</label><br/>';
-                        modalString += '<input value="' + result.lastName + '"' + ' name="LastName" /> ';
+                        modalString += '<label> Förnamn</label >';
+                        modalString += '<input value="' + result.firstName + '"' + ' name= "FirstName" /> </br>';
+                        modalString += '<label>Efternamn</label>';
+                        modalString += '<input value="' + result.lastName + '"' + ' name="LastName" /> </br>';
                         modalString += '<label>Ålder</label>';
-                        modalString += '<input value="' + result.age + '"' + ' name="Age" /> ';
-                        modalString += '<label>Email</label><br/>';
-                        modalString += '<input value="' + result.email + '"' + ' name="Email" /> ';
-                        modalString += '<label>Kön</label><br/>';
-                        modalString += '<input value="' + result.gender + '"' + ' name="Gender" /> ';
+                        modalString += '<input value="' + result.age + '"' + ' name="Age" /> </br>'
+                        modalString += '<label>Email</label>';
+                        modalString += '<input value="' + result.email + '"' + ' name="Email" /></br> ';
+                        modalString += '<label>Kön</label>';
+                        modalString += '<input value="' + result.gender + '"' + ' name="Gender" /> </br>';
 
                         modalString += '</div><div class="modal-footer">';
                         modalString += '<button type="button" id="saveEdit" class="btn btn-primary">Save changes</button><button type="button" id="testClose" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>';
