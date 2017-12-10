@@ -51,8 +51,12 @@ namespace CustomerRegisterDatabase.Controllers
         [HttpPost,Route("editcustomer")]
         public IActionResult EditCustomer(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var userToEdit = databaseContext.CustomerById(customer.Id);
-            var dateEdited = DateTime.Now;
+            var dateEdited = DateTime.Now.ToUniversalTime();
             userToEdit.FirstName = customer.FirstName;
             userToEdit.LastName = customer.LastName;
             userToEdit.Email = customer.Email;

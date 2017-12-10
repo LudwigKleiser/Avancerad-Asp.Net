@@ -2,6 +2,35 @@
     $("#successMessage").text("");
     $("#errorMessage").text("");
 }
+
+$("#time").click(function() {
+
+    $.ajax({
+        url: 'api/customers/allcustomers',
+        method: 'GET',
+        data: {
+
+        }
+    })
+
+        .done(function (result) {
+            console.log("Success!", result);
+            clear();
+            let contentString = '<table class="table"><thead><tr><th scope="col">Id</th><th scope="col">Created</th><th scope="col">Last edited</th></tr></thead><tbody>';
+            $.each(result, function (index, person) {
+                contentString += '<tr><th scope="row">' + person.id + '</th > <td>' + person.dateCreated + '</td > <td>' + person.dateEdited + '</td >   </ tr > ';
+            });
+            contentString += '</tbody></table>';
+            $("#successMessage").html(contentString);
+        })
+
+        .fail(function (xhr, status, error) {
+
+
+            console.log("Error", xhr, status, error);
+
+        });
+});
 $("#seed").click(function () {
 
     $.ajax({
